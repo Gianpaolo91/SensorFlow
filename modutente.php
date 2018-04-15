@@ -46,8 +46,8 @@
 <body class="nav-md">
 	<div class="container body">
 		<div class="main_container">
-			<?php include("barralaterale_adm.php")?>
-			<?php include_once("top_menu.php")?>
+			<?php include 'barralaterale_adm.php'?>
+			<?php include_once 'top_menu.php'?>
 
 			<!-- page content -->
 			<div class="right_col" role="main">
@@ -83,7 +83,7 @@
 
 							}
                        </script>
-								<?php include("tabellaresp_ut.php")?>
+								<?php include 'tabellaresp_ut.php'?>
 							<form id="form-aggiunta" action="modutente2.php" method="post" data-parsley-validate>
 								 <div>
     							<label for="ex1">Utente da modificare</label>

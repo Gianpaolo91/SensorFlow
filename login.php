@@ -64,7 +64,7 @@
 				</section>
 			</div>
 			<?php
-			require_once( 'core/init.php' );
+			require_once 'core/init.php' ;
 			if ( isset( $_POST[ "submit05" ] ) ) {
 				$email = $_POST[ "email" ];
 				$psw = $_POST[ "password" ];

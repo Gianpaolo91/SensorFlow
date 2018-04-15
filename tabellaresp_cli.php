@@ -26,7 +26,7 @@
 		<div class="x_content">
 			<p class="text-muted font-13 m-b-30"> 
 			</p>
-			<?php require_once ('core/init.php');?>
+			<?php require_once 'core/init.php'?>
 			<?php 
 			          $u=false;
 					  $db = DB::getInstance();

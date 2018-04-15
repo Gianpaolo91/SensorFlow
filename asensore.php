@@ -46,8 +46,9 @@
 <body class="nav-md">
 	<div class="container body">
 		<div class="main_container">
-			<?php include("barralaterale_adm.php")?>
-			<?php include_once("top_menu.php")?>
+		<?php include 'barralaterale_adm.php' ?>
+			<?php include 'top_menu.php'?>
+			
 
 			<!-- page content -->
 			<div class="right_col" role="main">
@@ -69,7 +70,7 @@
 
 					<div class="col-md-12 col-sm-12 col-xs-12">
 						<div class="x_panel">
-							<?php require_once ('core/init.php');?>
+							<?php require_once 'core/init.php'?>
 							<?php 
 								$db = DB::getInstance();
 					  			$db->query('SELECT nome_pattern FROM pattern');
@@ -138,7 +139,7 @@
 						));
 					}?>
 					
-					<?php include("tabellaresp_cli.php")?>
+					<?php include 'tabellaresp_cli.php'?>
 						<script>
 							function faiqualcosa(cntrl)
 							{

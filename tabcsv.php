@@ -31,9 +31,9 @@
   <body class="nav-md">
     <div class="container body">
       <div class="main_container">
-        <?php include("barralaterale_cli.php")?>
-  			<?php include("top_menu.php")?>
-  			<?php require_once ('core/init.php');?>
+        <?php include 'barralaterale_cli.php'?>
+  			<?php include 'top_menu.php'?>
+  			<?php require_once 'core/init.php'?>
 
         <!-- top navigation -->
 

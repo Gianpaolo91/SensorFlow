@@ -31,8 +31,8 @@
   <body class="nav-md">
     <div class="container body">
       <div class="main_container">
-      <?php include("barralaterale_adm.php")?>
-		  <?php include("top_menu.php");?>
+      <?php include 'barralaterale_adm.php'?>
+		  <?php include 'top_menu.php'?>
 
         
 
@@ -53,7 +53,7 @@
                     <div class="clearfix"></div>
                   </div>
                   <div class="x_content">
-                    <?php require_once ('core/init.php');?>
+                    <?php require_once 'core/init.php'?>
 			<?php 
 					  $db = DB::getInstance();
 					  $db->query('SELECT * FROM utente');

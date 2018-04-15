@@ -46,8 +46,8 @@
 <body class="nav-md">
 	<div class="container body">
 		<div class="main_container">
-			<?php include("barralaterale_cli.php")?>
-			<?php include_once("top_menu.php")?>
+			<?php include 'barralaterale_cli.php'?>
+			<?php include_once 'top_menu.php'?>
 
 			<!-- page content -->
 			<div class="right_col" role="main">
@@ -83,7 +83,7 @@
 
 							}
                        </script>
-								<?php include("tabellaresp_sen_cli.php")?>
+								<?php include 'tabellaresp_sen_cli.php'?>
 							<form id="form-aggiunta" action="tabcsv_sintesi.php" method="post" data-parsley-validate>
 								 <div>
     							<label for="ex1">Visualizza sintesi dati sensore</label>

@@ -27,10 +27,10 @@
 			<a class="hiddenanchor" id="dati"></a>
 			<a class="hiddenanchor" id="modello"></a>
 			<a class="hiddenanchor" id="cliente"></a>
-			<?php include("barralaterale_adm.php")?>
-			<?php include("top_menu.php")?>
-			<?php include("psw.php")?>
-			<?php require_once ('core/init.php');?>
+			<?php include 'barralaterale_adm.php' ?>
+			<?php include 'top_menu.php'?>
+			<?php include 'psw.php' ?>
+			<?php require_once 'core/init.php'?>
 
 
 

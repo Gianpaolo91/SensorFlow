@@ -25,7 +25,7 @@
 		</div>
 		<div class="x_content">
 
-			<?php require_once ('core/init.php');?>
+			<?php require_once 'core/init.php'?>
 			<?php
 			          $u=false;
 					  $db = DB::getInstance();

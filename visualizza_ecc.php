@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <?php require_once ('core/init.php');?>
+    <?php require_once 'core/init.php'?>
     <?php
           $db = DB::getInstance();
           $db->query('SELECT * FROM sensore WHERE id_utente_sensore = '.$_SESSION['id_utente']);
@@ -40,8 +40,8 @@
   <body class="nav-md">
     <div class="container body">
       <div class="main_container">
-        <?php include("barralaterale_cli.php")?>
-  			<?php include("top_menu.php")?>
+        <?php include 'barralaterale_cli.php'?>
+  			<?php include 'top_menu.php'?>
 
         <!-- top navigation -->
 
