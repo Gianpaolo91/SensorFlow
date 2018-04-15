@@ -88,7 +88,7 @@
 
 							$db = DB::getInstance();
 
-
+							define("MAX_NUM_MISURE",10);
 
 							$numero_misure = $_POST["numero_misure"];
 							$numero_misure = stripslashes($numero_misure);
@@ -102,31 +102,32 @@
 							$id_modello = $db->first()->id_pattern;
 							$i=1;
 							}
-							for($i;$i<=$numero_misure;$i++){
-							$pos_iniziale = $_POST["pos_iniziale".$i];
-							$pos_iniziale = stripslashes($pos_iniziale);
-							$pos_iniziale = mysql_real_escape_string($pos_iniziale);
-							$pos_finale = $_POST["pos_finale".$i];
-							$pos_finale = stripslashes($pos_finale);
-							$pos_finale = mysql_real_escape_string($pos_finale);
-							$misura = $_POST["misura".$i];
-							$misura = stripslashes($misura);
-							$misura = mysql_real_escape_string($misura);
-							$sintetizzabile = $_POST["sint".$i];
-							$sintetizzabile = stripslashes($sintetizzabile);
-							$sintetizzabile = mysql_real_escape_string($sintetizzabile);
-							if($sintetizzabile != 1){
-								$sintetizzabile = 0;
-							}
-							$db->insert('misura',array('iniziale_cifre_misura'=>$pos_iniziale,
-													  'finale_cifre_misura'=>$pos_finale,
-													   'unita_misura'=>$misura,
-													   'id_pattern_misura'=>$id_modello,
-														  'sintetizzabile'=> $sintetizzabile
-													  ));
+							if($numero_misure<=MAX_NUM_MISURE){
+								for($i;$i<=$numero_misure;$i++){
+									$pos_iniziale = $_POST["pos_iniziale".$i];
+									$pos_iniziale = stripslashes($pos_iniziale);
+									$pos_iniziale = mysql_real_escape_string($pos_iniziale);
+									$pos_finale = $_POST["pos_finale".$i];
+									$pos_finale = stripslashes($pos_finale);
+									$pos_finale = mysql_real_escape_string($pos_finale);
+									$misura = $_POST["misura".$i];
+									$misura = stripslashes($misura);
+									$misura = mysql_real_escape_string($misura);
+									$sintetizzabile = $_POST["sint".$i];
+									$sintetizzabile = stripslashes($sintetizzabile);
+									$sintetizzabile = mysql_real_escape_string($sintetizzabile);
+									if($sintetizzabile != 1){
+										$sintetizzabile = 0;
+									}
+									$db->insert('misura',array('iniziale_cifre_misura'=>$pos_iniziale,
+															  'finale_cifre_misura'=>$pos_finale,
+															   'unita_misura'=>$misura,
+															   'id_pattern_misura'=>$id_modello,
+																  'sintetizzabile'=> $sintetizzabile
+															  ));
 
+								}
 							}
-
 
 								}
 								?>
@@ -161,7 +162,7 @@
 					var righe = "";
 					// Inserisco una riga ad ogni ciclo
 					for ( i = 1; i <= numero_righe; i++ ) {
-						righe = righe + "" + i + ") Posizione iniziale : <input  required type='number' name='pos_iniziale" + i + "' min='1' max='49' style='width: 35px' />   Posizione finale : <input  data-parsley-gte='#pos_iniziale" + i + "' required type='number' name='pos_finale" + i + "' min='1' max='49' style='width: 35px' />   Unita di misura : <input type='text' name='misura" + i + "' required style='width:100px' />  Sintetizzabile(SI/NO) : <input type='checkbox' id='sint' name='sint" + i + "' value='1'><br/>";
+						righe = righe + "" + i + ") Posizione iniziale : <input  required type='number' name='pos_iniziale" + i + "' min='1' max='49' style='width: 35px' />   Posizione finale : <input  data-parsley-gte='#pos_iniziale" + i + "' required type='number' name='pos_finale" + i + "' min='1' max='49' style='width: 35px' />   Unita di misura : <input type='text' name='misura" + i + "' required style='width:100px' />  Sintetizzabile : <input type='checkbox' id='sint' name='sint" + i + "' value='1'><br/>";
 					}
 
 					// Aggiorno il contenuto del box che conterrà gli elementi aggiunti
