@@ -31,5 +31,6 @@ HTML;
 	echo $str;
 }else{
 	     header("Location: http://sensorflow.altervista.org/production/login.php");
+	     die();
 }
 ?>
