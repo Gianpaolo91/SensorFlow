@@ -2,7 +2,9 @@
 session_start();
 //controllo permessi
 if($_SESSION[ 'permessi_admin' ] == 1){
-header( "Location: http://sensorflow.altervista.org/production/index.php" );}
+header( "Location: http://sensorflow.altervista.org/production/index.php" );
+die();
+}
 $str = <<<HTML
 <div class="col-md-3 left_col">
 <div class="left_col scroll-view">
