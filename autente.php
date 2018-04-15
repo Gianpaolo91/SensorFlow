@@ -89,6 +89,8 @@
 	$nome = $_POST["nome"];
 	$nome = stripslashes($nome);
 	$nome = mysql_real_escape_string($nome);
+	$nome = htmlspecialchars($nome);
+	$nome = stripslashes($nome);
 	$cognome = $_POST["cognome"];
 	$cognome = stripslashes($cognome);
 	$cognome = mysql_real_escape_string($cognome);
@@ -98,6 +100,8 @@
 	$email = $_POST["email"];
 	$email = stripslashes($email);
 	$email = mysql_real_escape_string($email);
+	$email = htmlspecialchars($email);
+	$email = stripslashes($email);
 		//0 se cliente, 1 se amministratore
 	$tipologia = 0;
 	if ($_POST["tipologia"]==="amministratore"){
