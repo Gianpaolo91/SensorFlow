@@ -2,7 +2,9 @@
 session_start();
 if(isset($_SESSION['email']))
 {
-echo'<div class="top_nav">
+	$str = <<<HTML
+
+<div class="top_nav">
           <div class="nav_menu">
             <nav>
               <div class="nav toggle">
@@ -12,7 +14,7 @@ echo'<div class="top_nav">
               <ul class="nav navbar-nav navbar-right">
                 <li class="">
                   <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                    <img src="images/img1.jpg" alt="">'.$_SESSION['nome'].' '.$_SESSION['cognome'].'
+                    <img src="images/img1.jpg" alt="">{$_SESSION['nome']} {$_SESSION['cognome']}
                     <span class=" fa fa-angle-down"></span>
                   </a>
                   <ul class="dropdown-menu dropdown-usermenu pull-right">
@@ -24,7 +26,9 @@ echo'<div class="top_nav">
               </ul>
             </nav>
           </div>
-        </div>';
+        </div>
+HTML;
+	echo $str;
 }else{
 	     header("Location: http://sensorflow.altervista.org/production/login.php");
 }
