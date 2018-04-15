@@ -67,15 +67,15 @@
 									<?php 
 	//Prende i dati dalla form
 	if(isset($_POST["ok"])){
-		$lunghezza_codice = 8;
-		$lunghezza_eccezione = 3;
+		define("LUNGHEZZA_CODICE",8);
+		define("LUNGHEZZA_ECCEZIONE",3);
 		$stringa_eccezione = 'ERR';
 		
 		$lettura = $_POST["lettura"];
 		$lettura = stripslashes($lettura);
 		$lettura = mysql_real_escape_string($lettura);
 
-		$codice_sensore = substr($lettura,0,$lunghezza_codice);
+		$codice_sensore = substr($lettura,0,LUNGHEZZA_CODICE);
 
 		//trovo il pattern dato il codice del sensore
 		$db = DB::getInstance();
@@ -104,16 +104,16 @@
 			}	
 		}
 		
-		$stringa_controllo_errore = substr($lettura,$lunghezza_codice,$lunghezza_eccezione);
+		$stringa_controllo_errore = substr($lettura,LUNGHEZZA_CODICE,LUNGHEZZA_ECCEZIONE);
 		if(strcmp($stringa_controllo_errore,$stringa_eccezione)==0){
-			$max_finale_cifre = $lunghezza_eccezione;
+			$max_finale_cifre = LUNGHEZZA_ECCEZIONE;
 		}
 		
 		//salvo le stringa di cifre decimali
-		$stringa_cifre_decimali = substr($lettura,$lunghezza_codice,$max_finale_cifre);
+		$stringa_cifre_decimali = substr($lettura,LUNGHEZZA_CODICE,$max_finale_cifre);
 		
 		
-		$start_commento = $lunghezza_codice + $max_finale_cifre;
+		$start_commento = LUNGHEZZA_CODICE + $max_finale_cifre;
 		$commento = substr($lettura,$start_commento);
 		
 		if(strlen($stringa_cifre_decimali)==$max_finale_cifre){

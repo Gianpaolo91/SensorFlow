@@ -84,6 +84,8 @@
 									<?php 
 	//Prende i dati dalla form
 	if(isset($_POST["ok"])){
+		
+		define("LUNGHEZZA_PWD",10);
 	$nome = $_POST["nome"];
 	$nome = stripslashes($nome);
 	$nome = mysql_real_escape_string($nome);
@@ -102,7 +104,7 @@
 	  $tipologia = 1;
 	}
 	//password casuale, poi calcola l'hash
-	$password = random_string(10);
+	$password = random_string(LUNGHEZZA_PWD);
 	$pwdmd5 = md5($password);
 		
 		//inserimento nel DB
