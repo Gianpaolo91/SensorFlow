@@ -9,11 +9,12 @@ function random_string($length) {
 	define("NUM_MAX",    99);
 	define("NUM_MIN",    0);
     $string = "";
-    $psw_casuale = openssl_digest((time()+rand(NUM_MIN,NUM_MAX)), "sha224", false);
+	$psw = openssl_digest((time()+rand(NUM_MIN,NUM_MAX)), "sha224", false);
+ 
     // genera una stringa casuale che ha lunghezza
     // uguale al multiplo di 32 successivo a $length
     for ($i = 0; $i <= ($length/STRING_LENGTH); $i++)
-        $string .= $psw_casuale;
+        $string .= $psw;
  
     // indice di partenza limite
     $max_start_index = (STRING_LENGTH*$i)-$length;
