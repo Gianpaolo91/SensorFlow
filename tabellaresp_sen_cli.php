@@ -47,15 +47,18 @@
 					<?php $i=0;
 
 							foreach($listaSensori as $sensore){
-
-								echo "<tr>";
-                          echo "<td>$sensore->codice_sensore</td>";
-                         echo "<td>$sensore->nome_sensore</td>";
-                         echo "<td>$sensore->tag_sensore</td>";
-						echo	"<td><button  name='$sensore->id_sensore' value='$sensore->id_sensore' onclick='faiqualcosa(this)' class='btn btn-info' >Seleziona</button></td>";
-							echo	"</tr>";
-							  $i = $i+1;
-							}?>
+							$stampa_tabella = <<<HTML
+								<tr>
+                        <td>$sensore->codice_sensore</td>
+                         <td>$sensore->nome_sensore</td>
+                         <td>$sensore->tag_sensore</td>
+<td><button  name='$sensore->id_sensore' value='$sensore->id_sensore' onclick='faiqualcosa(this)' class='btn btn-info' >Seleziona</button></td>
+							</tr>
+HTML;
+					echo $stampa_tabella;		 
+							 $i = $i+1;
+							  }
+					?>
 
 
 				</tbody>

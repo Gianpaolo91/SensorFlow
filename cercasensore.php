@@ -72,12 +72,14 @@
                        <?php $i=0;
 					
 							foreach($listaSensori as $sensore){
-								
-								echo "<tr>";
-                          echo "<td>$sensore->codice_sensore</td>";
-                         echo "<td>$sensore->nome_sensore</td>";
-                         echo "<td>$sensore->tag_sensore</td>";
-							echo	"</tr>";
+$str = <<<HTML
+<tr>
+<td>$sensore->codice_sensore</td>
+<td>$sensore->nome_sensore</td>
+<td>$sensore->tag_sensore</td>
+</tr> 
+HTML;
+								echo $str;
 							  $i = $i+1;
 							}?>
                       </tbody>

@@ -75,11 +75,13 @@
                       <thead>
                         <tr>
                           <?php
-                          echo '<th>Nome</th>';
-                          echo '<th>Tag</th>';
-		  					echo '<th>Data ricezione</th>';
-		  					echo '<th>Commento</th>';
-                				
+							$str = <<<HTML
+                          <th>Nome</th>
+                          <th>Tag</th>
+		  					<th>Data ricezione</th>
+		  					<th>Commento</th>
+HTML;
+		  echo $str;
 							?>
                         </tr>
                       </thead>
@@ -99,13 +101,17 @@
 							  	foreach($listaDati as $dato){
 								  
 									  if(strcmp($dato->stringa_decimale_dato,$stringa_errore)==0){
-										echo "<tr>";
-										  echo "<td>$sensore->nome_sensore</td>";
-										echo "<td>$sensore->tag_sensore</td>";
-										echo "<td>$dato->data_memorizzazione_dato</td>";
-										 $strip_commento = stripslashes($dato->commento_dato);
-										echo "<td> $strip_commento</td>";
-                							echo "</tr>";}
+										  $strip_commento = stripslashes($dato->commento_dato);
+										  $str1 = <<<HTML
+										<tr>
+										<td>$sensore->nome_sensore</td>
+									<td>$sensore->tag_sensore</td>
+									<td>$dato->data_memorizzazione_dato</td>
+										<td> $strip_commento</td>
+                							</tr>
+HTML;
+										  echo $str1;
+									  }
                             }
                           }
 

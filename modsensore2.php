@@ -84,7 +84,11 @@
 	                            $db->query('SELECT nome_pattern FROM pattern');
 					  		    $listaPattern = $db->results();
 								foreach($listaPattern as $pattern){
-								echo "<option value='$pattern->nome_pattern'>$pattern->nome_pattern</option>";
+									$stampa_nome_pattern = <<<HTML
+						<option value='$pattern->nome_pattern'>$pattern->nome_pattern</option>
+						
+HTML;
+									echo $stampa_nome_pattern;
 									}?>
 									
 

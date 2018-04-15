@@ -77,7 +77,13 @@
                   </div>
                   <div class="x_content">
                     <p class="text-muted font-13 m-b-30">
-                    Sintesi(min,max,media) dati letti dal sensore: <?php echo "<h2>$nome_sensore</h2>"?>.
+                    Sintesi(min,max,media) dati letti dal sensore: <?php
+	$stampa_nome_sensore = <<<HTML
+	<h2>$nome_sensore</h2>
+HTML;
+		  echo $stampa_nome_sensore;
+						
+						?>.
                     </p>
                     <table id="datatable-buttons" class="table table-striped table-bordered">
 
@@ -106,15 +112,19 @@
             }
         }
       if($misura->sintetizzabile){
-    echo'
-    <tr>
-      <th scope="row">
-            '.$misura->unita_misura.'
-          </th>
-      <td>'.(int)min($sint).'</td>
-      <td>'.array_sum($sint)/count($sint).'</td>
-      <td>'.(int)max($sint).'</td>
-    </tr>';
+		  $misura_tab=$misura->unita_misura;
+		  $min_tab = (int)min($sint);
+		  $max_tab = (int)max($sint);
+		  $avg_tab = array_sum($sint)/count($sint);
+			$stampa_tabella = <<<HTML
+			<tr>
+			  <th scope="row">$misura_tab</th>
+			  <td>$min_tab</td>
+			  <td>$avg_tab</td>
+			  <td>$max_tab</td>
+			</tr>
+HTML;
+		  echo $stampa_tabella;
      }
    }
 }

@@ -48,13 +48,18 @@
 					<?php $i=0;
 					
 							foreach($listaUtenti as $utente){
-								echo "<tr>";
-                          echo "<td>$utente->email_utente</td>";
-                         echo "<td>$utente->nome_utente</td>";
-                         echo "<td>$utente->cognome_utente</td>";
-                         echo "<td>$utente->azienda_utente</td>";
-						echo	"<td><button  name='$utente->id_utente' value='$utente->id_utente' onclick='faiqualcosa(this)' class='btn btn-info' >Seleziona</button></td>";
-							echo	"</tr>";
+								$stampa_tabella = <<<HTML
+								<tr>
+                         <td>$utente->email_utente</td>
+                         <td>$utente->nome_utente</td>
+                         <td>$utente->cognome_utente</td>
+                         <td>$utente->azienda_utente</td>
+						<td><button  name='$utente->id_utente' value='$utente->id_utente' onclick='faiqualcosa(this)' class='btn btn-info' >Seleziona</button></td>
+							</tr>
+HTML;
+								echo $stampa_tabella;
+								
+								
 							  $i = $i+1;
 							}?>
 

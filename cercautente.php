@@ -78,13 +78,18 @@
 								if($utente->is_admin_utente){
 									$ruolo = 'Amministratore';
 								}
-								echo "<tr>";
-                          echo "<td>$utente->email_utente</td>";
-                         echo "<td>$utente->nome_utente</td>";
-                         echo "<td>$utente->cognome_utente</td>";
-                         echo "<td>$utente->azienda_utente</td>";
-						echo	"<td>$ruolo</button></td>";
-							echo	"</tr>";
+								
+								$stampa_tabella = <<<HTML
+								<tr>
+                        <td>$utente->email_utente</td>
+                         <td>$utente->nome_utente</td>
+                         <td>$utente->cognome_utente</td>
+                        <td>$utente->azienda_utente</td>
+						<td>$ruolo</button></td>
+							</tr>
+HTML;
+								echo $stampa_tabella;
+								
 							  $i = $i+1;
 							}?>
                       </tbody>

@@ -98,8 +98,14 @@
 								<select size="5" id="modello" name="modello" class="form-control"  required data-parsley-trigger="change">
 									<option value="">Scegli...</option>
 								<?php foreach($listaPattern as $pattern){
-								echo "<option value='$pattern->nome_pattern'>$pattern->nome_pattern</option>";
-									}?>
+	$stampa_nome_pattern = <<<HTML
+			<option value='$pattern->nome_pattern'>$pattern->nome_pattern</option>
+HTML;
+	echo $stampa_nome_pattern;
+									
+									}
+									
+									?>
 									
 
 								</select>

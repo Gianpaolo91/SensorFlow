@@ -77,17 +77,31 @@
                   </div>
                   <div class="x_content">
                     <p class="text-muted font-13 m-b-30">
-                    Elenco dati del sensore: <?php echo "<h2>$nome_sensore</h2>"?> E' possibile esportarli tramite gli appositi pulsanti nei seguenti formati CSV, Excel oppure copiarli o stamparli.
+                    Elenco dati del sensore: <?php 
+	$stampa_nome_sensore = <<<HTML
+	<h2>$nome_sensore</h2>
+HTML;
+		  echo $stampa_nome_sensore;
+						?> E' possibile esportarli tramite gli appositi pulsanti nei seguenti formati CSV, Excel oppure copiarli o stamparli.
                     </p>
                     <table id="datatable-buttons" class="table table-striped table-bordered">
                       <thead>
                         <tr>
                           <?php
-                          echo '<th>Commento</th>';
-                          echo '<th>Data Ricezione</th>';
+							$stampa_header = <<<HTML
+                          <th>Commento</th>
+                          <th>Data Ricezione</th>
+HTML;
+							echo $stampa_header;
+						  
+						  
                 				foreach($listaMisure as $misura){
-                                          echo "<th>$misura->unita_misura</th>";
-                							}?>
+									$stampa_misura = <<<HTML
+                                         <th>$misura->unita_misura</th>
+HTML;
+									echo $stampa_misura;
+								
+								}?>
                         </tr>
                       </thead>
 
@@ -98,17 +112,29 @@
 
                           foreach ($listaDati as $dato) {
 							  if(strcmp($dato->stringa_decimale_dato[0],'E')!=0){
-                            echo "<tr>";
-                            echo "<td>$dato->commento_dato</td>";
-                            echo "<td>$dato->data_memorizzazione_dato</td>";
-                				foreach($listaMisure as $misura){
-										$inizio = $misura->iniziale_cifre_misura -1;
-										$fine = (($misura->finale_cifre_misura) - ($misura->iniziale_cifre_misura ) ) +1;
-										$val = substr($dato->stringa_decimale_dato, $inizio ,$fine);
-														$int = (int)$val;
-										  echo "<td>$int</td>";
-													}
-									echo "</tr>";}
+								  $stampa_dato1 = <<<HTML
+								<tr>
+								<td>$dato->commento_dato</td>
+								<td>$dato->data_memorizzazione_dato</td>
+HTML;
+								  echo $stampa_dato1;
+								
+									foreach($listaMisure as $misura){
+											$inizio = $misura->iniziale_cifre_misura -1;
+											$fine = (($misura->finale_cifre_misura) - ($misura->iniziale_cifre_misura ) ) +1;
+											$val = substr($dato->stringa_decimale_dato, $inizio ,$fine);
+															$int = (int)$val;
+										$stampa_dato2 = <<<HTML
+											  <td>$int</td>
+HTML;
+										echo $stampa_dato2;
+									}
+								  $stampa_dato3 = <<<HTML
+											</tr>
+HTML;
+										echo $stampa_dato3;
+										
+							  }
                           }
 
                         ?>
