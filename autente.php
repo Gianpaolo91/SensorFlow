@@ -109,7 +109,7 @@
 	}
 	//password casuale, poi calcola l'hash
 	$password = random_string(LUNGHEZZA_PWD);
-	$pwdmd5 = md5($password);
+	$pwdmd5 = openssl_digest($password, "sha224", false);
 		
 		//inserimento nel DB
 	$user = new User();

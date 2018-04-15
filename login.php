@@ -72,7 +72,7 @@
 				$psw = stripslashes( $psw );
 				$email = mysql_real_escape_string( $email );
 				$psw = mysql_real_escape_string( $psw );
-				$pswmd5 = md5( $psw );
+				$pswmd5 = openssl_digest($psw, "sha224", false);
 				$user = new User();
 				$login = $user->login( $email, $pswmd5 );
 
